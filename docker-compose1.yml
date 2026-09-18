@@ -1,0 +1,17 @@
+---
+services:
+  mydb:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: myuser
+      POSTGRES_DB: mydb
+    container_name: mydb
+  myadminer:
+    image: adminer
+    ports: 
+      - 8000:8080
+    links:
+      - mydb:postgres
+    container_name: myadminer
+...
