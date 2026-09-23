@@ -1,0 +1,5 @@
+FROM ubuntu
+MAINTAINER WASIM
+WORKDIR /app
+COPY install-docker.sh .
+RUN sh install-docker.sh
