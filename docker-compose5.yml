@@ -1,0 +1,28 @@
+---
+# Here we will create two volumes db and wordpress and we will attach it to the respective containers
+services:
+  mydb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: intelliqit
+    volumes:
+      - db:/var/lib/mysql
+  mywordpress:
+    image: wordpress
+    ports: 
+      - 8888:80
+    volumes:
+      - mywordpress:/var/www/html
+
+volumes:
+  db:
+  mywordpress:
+# Here we are using exixting network
+# First create network using below command
+# docker network create --driver bridge --subnet=10.0.0.0/28 intelliq
+networks:
+  default:
+    external:
+      name: intelliq
+
+...

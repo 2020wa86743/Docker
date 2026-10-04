@@ -1,0 +1,21 @@
+---
+# Here we will create two volumes db and wordpress and we will attach it to the respective containers
+services:
+  mydb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: intelliqit
+    volumes:
+      - db:/var/lib/mysql
+  mywordpress:
+    image: wordpress
+    ports: 
+      - 8888:80
+    volumes:
+      - mywordpress:/var/www/html
+
+volumes:
+  db:
+  mywordpress:
+
+...
