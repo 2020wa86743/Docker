@@ -3,6 +3,7 @@ services:
   myjenkins:
 
 # Here it will directly create image from dockerfile and it wll directly use customised image from local storage
+# Here I am using dockerfile9
     build: .
     ports:
       - 8888:8080
