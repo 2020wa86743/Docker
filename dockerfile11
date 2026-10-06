@@ -1,0 +1,10 @@
+FROM ubuntu
+WORKDIR /app
+RUN apt update
+RUN apt install -y openjdk-21-jdk
+ADD https://get.jenkins.io/war-stable/2.580.1/jenkins.war .
+# Here the CMD will change the ubuntu container default process to jenkins process and it will behave as a jenkins container
+# This can be changed while running the container
+# docker run --name u1 -it -p 8080:8080 myubuntu <process name>
+EXPOSE 8080
+CMD ["java","-jar","jenkins.war"]
